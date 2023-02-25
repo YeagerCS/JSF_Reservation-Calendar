@@ -1,0 +1,83 @@
+.mainButton{
+    background-color: #59659A;
+    color: white;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: .2em;
+    font-family: "Berlin Sans FB";
+    font-size: medium;
+    transition: .3s;
+}
+
+.mainButton:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+#indexDiv{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    height: 65vh;
+    margin-right: 5%;
+}
+
+.lbls{
+    font-size: large;
+    font-family: "Berlin Sans FB";
+    font-weight: bold;
+    color: white;
+}
+
+#public, #private{
+    font-family: "Berlin Sans FB";
+}
+
+#aboutUsIcon{
+    width: 80px;
+    height: auto;
+}
+
+#aboutUsDiv{
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    height: 32vh;
+    margin-left: 2%;
+}
+
+#aboutUsIcon2{
+    width: 80px;
+    height: auto;
+}
+#aboutUsDiv2{
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    height: 0vh;
+    margin-left: 2%;
+}
+
+
+#aboutDiv{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 95vh;
+}
+
+#title{
+    font-family: "Berlin Sans FB";
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 3%;
+}
+
+#form1{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    height: 80vh;
+    margin: 5%;
+}
+

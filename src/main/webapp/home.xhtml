@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by Benjamin
+  User: Debug
+  Date: 17/02/2023
+  Time: 08:09
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/indexStyles.css"/>
+    <h:outputStylesheet>
+        body{
+            background: url("resources/images/indexBG.png");
+            background-size: cover;
+        }
+    </h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <h:form>
+        <div id="form1">
+            <h:commandButton value="Enter Key" action="/index.xhtml" class="mainButton" style="width: 300px; height: 60px; font-size: 35px"/>
+        </div>
+        <div id="aboutUsDiv2">
+            <a href="aboutus.xhtml"><img src="resources/images/aboutUsBtn.png" alt="about us" id="aboutUsIcon2"/></a>
+        </div>
+    </h:form>
+
+</h:body>
+
+</html>

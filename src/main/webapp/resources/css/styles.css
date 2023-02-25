@@ -1,0 +1,19 @@
+a{
+    color: #8FAADC;
+}
+
+.esse td{
+    background-color: #F1F1F1;
+    border: 2px solid #C1C1C1;
+    padding: 5px;
+    text-align: center;
+}
+
+a:visited{
+    color: #43577c;
+}
+
+body{
+    background-color: black;
+    color: white;
+}

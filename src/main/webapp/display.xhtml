@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by Lejs Malisi
+  User: Debug
+  Date: 15/02/2023
+  Time: 14:34
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/indexStyles.css"/>
+    <h:outputStylesheet>
+        #benjamin{
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            margin-right: 10%;
+        }
+
+        .esse td{
+            background-color: #F1F1F1;
+            border: 2px solid #C1C1C1;
+            padding: 5px;
+            text-align: center;
+            color: black;
+        }
+
+        .esse th{
+            background-color: #6E55B3;
+        }
+
+        body{
+            background: url("resources/images/tableBG.jpeg");
+            background-size: cover;
+            zoom: 120%;
+            font-family: "Berlin Sans FB";
+        }
+        th{
+            color: white;
+        }
+    </h:outputStylesheet>
+</h:head>
+
+<h:body>
+    <h:form id="benjamin">
+        <h:dataTable value="#{reservationBean.reservationModel.reservations}" var="res" border="2" class="esse">
+            <h:column>
+                <f:facet name="header">Date</f:facet>
+                <h:outputText value="#{res.dateAsString}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">From</f:facet>
+                <h:outputText value="#{res.from}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">To</f:facet>
+                <h:outputText value="#{res.to}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Room Number</f:facet>
+                <h:outputText value="#{res.room.roomNumber}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Remark</f:facet>
+                <h:outputText value="#{res.remark}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Participants</f:facet>
+                <h:outputText value="#{res.participants.participantString}" />
+            </h:column>
+        </h:dataTable>
+        <h:commandButton action="/index.xhtml" value="Back" class="mainButton" style="width: 70px; margin-left: 1%"/>
+    </h:form>
+</h:body>
+
+</html>

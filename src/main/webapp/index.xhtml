@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by Lejs Malisi
+  User: Debug
+  Date: 15/02/2023
+  Time: 13:26
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/indexStyles.css"/>
+    <h:outputStylesheet>
+        body{
+            background: url("resources/images/homeBG.jpeg");
+            background-size: cover;
+        }
+    </h:outputStylesheet>
+    <h:outputScript src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"/>
+    <h:outputScript name="scripts/script.js"/>
+</h:head>
+
+<h:body>
+        <h1 style="position: absolute" id="title">MeetingMapper</h1>
+        <h:form>
+            <div id="indexDiv">
+                <h:panelGrid columns="3">
+                    <h:outputLabel value="Public Key" for="public" class="lbls"/>
+                    <h:inputText value="#{reservationBean.reservationKey.publicKey}" id="public" required="false" style="width: 200px; height: 20px; font-family: 'Berlin Sans FB'; font-size: 15px"/>
+                    <h:commandButton value="Submit Public Key" action="#{reservationBean.setReservationByPublicKey()}" class="mainButton" style="height: 30px; width: 150px"/>
+                    <h:outputLabel value="Private Key" for="private" class="lbls"/>
+                    <h:inputText value="#{reservationBean.reservationKey.privateKey}" id="private" required="false" style="width: 200px; height: 20px;font-family: 'Berlin Sans FB'; font-size: 15px"/>
+                    <h:commandButton value="Submit Private Key" action="#{reservationBean.setReservationByPrivateKey()}" class="mainButton" style="height: 30px; width: 150px"/>
+                    <h:commandButton value="Create Reservation" action="#{reservationBean.createAndClearReservation()}" class="mainButton"/>
+                    <h:commandButton id="backBtn" value="Display Reservations" action="/display.xhtml" class="mainButton" style="width: 150px"/>
+                </h:panelGrid>
+            </div>
+            <div id="textDiv">
+                <img src="resources/images/text.jpeg" alt="text" style="width: 450px; position: absolute; margin-top: -18%; margin-left: 2%"/>
+            </div>
+            <div id="aboutUsDiv">
+                <a href="aboutus.xhtml"><img src="resources/images/aboutUsBtn.png" alt="about us" id="aboutUsIcon"/></a>
+            </div>
+        </h:form>
+</h:body>
+
+</html>

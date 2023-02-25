@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by Lejs Malisi
+  User: Debug
+  Date: 15/02/2023
+  Time: 13:47
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Title</title>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:outputStylesheet>
+        body{
+            background: url("resources/images/reservationBG.jpeg");
+            background-size: cover;
+            zoom: 150%;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 64vh;
+            margin-right: 5%;
+            font-family: "Berlin Sans FB";
+        }
+        input{
+            font-family: "Berlin Sans FB";
+        }
+        textarea{
+            font-family: "Berlin Sans FB";
+        }
+    </h:outputStylesheet>
+    <h:outputStylesheet name="css/indexStyles.css"/>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Date" for="date"/>
+            <h:inputText value="#{reservationBean.reservationModel.currentReservation.dateAsString}" id="date" required="true" disabled="#{reservationBean.reservationModel.readOnly}">
+                <f:validator binding="#{reservationBean.dateValidator}" id="dateValidator"/>
+            </h:inputText>
+            <h:message for="date"/>
+            <h:outputLabel value="From" for="from"/>
+            <h:inputText value="#{reservationBean.reservationModel.currentReservation.from}" id="from" required="true" disabled="#{reservationBean.reservationModel.readOnly}">
+                <f:validateRegex pattern="^([01]\d|2[0-3]):([0-5]\d)$"/>
+            </h:inputText>
+            <h:message for="from"/>
+            <h:outputLabel value="To" for="to"/>
+            <h:inputText value="#{reservationBean.reservationModel.currentReservation.to}" id="to" required="true" disabled="#{reservationBean.reservationModel.readOnly}">
+                <f:validateRegex pattern="^([01]\d|2[0-3]):([0-5]\d)$"/>
+            </h:inputText>
+            <h:message for="to"/>
+            <h:outputLabel value="Room"/>
+            <h:selectOneListbox value="#{reservationBean.reservationModel.currentReservation.room.roomNumber}" required="true" id="roomNr" disabled="#{reservationBean.reservationModel.readOnly}">
+                <f:selectItems value="#{reservationBean.roomModel.rooms}" var="items" itemValue="#{items.roomNumber}" itemLabel="#{items.roomNumber}"/>
+            </h:selectOneListbox>
+            <h:message for="roomNr"/>
+            <h:outputLabel value="Remark" for="remark"/>
+            <h:inputTextarea value="#{reservationBean.reservationModel.currentReservation.remark}" id="remark" required="true" disabled="#{reservationBean.reservationModel.readOnly}"/>
+            <h:message for="remark"/>
+            <h:outputLabel value="Participants" for="participants"/>
+            <h:inputTextarea value="#{reservationBean.reservationModel.currentReservation.participants.participantString}" id="participants" required="true" disabled="#{reservationBean.reservationModel.readOnly}">
+                <f:validateRegex pattern="^([a-zA-Z]+,?\s*)+$"/>
+            </h:inputTextarea>
+            <h:message for="participants"/>
+            <h:outputLabel value="Private Key: " rendered="#{!reservationBean.reservationModel.readOnly}"/>
+            <h:outputText value="#{reservationBean.reservationModel.currentReservation.privateKey}" rendered="#{!reservationBean.reservationModel.readOnly}"/>
+            <h:outputText value=" "/>
+            <h:outputLabel value="Public Key: "/>
+            <h:outputText value="#{reservationBean.reservationModel.currentReservation.publicKey}"/>
+            <h:outputText value=" "/>
+            <h:commandButton value="Save" action="#{reservationBean.addReservation()}" rendered="#{!reservationBean.reservationModel.readOnly}" class="mainButton" style="width: 150px;"/>
+            <a href="index.xhtml" style="color: white">Back</a>
+        </h:panelGrid>
+        <h:messages globalOnly="true"/>
+    </h:form>
+</h:body>
+
+</html>
